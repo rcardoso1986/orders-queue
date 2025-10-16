@@ -1,0 +1,25 @@
+services:
+  api:
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 256M
+  worker:
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+  mongo:
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 1G
+  redis:
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 1.5G

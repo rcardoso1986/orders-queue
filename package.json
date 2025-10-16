@@ -1,0 +1,24 @@
+{
+  "name": "test-docker",
+  "version": "1.0.0",
+  "main": "src/api.js",
+  "type": "module",
+
+  "scripts": {
+    "start:api": "node src/api.js",
+    "start:worker": "node src/queue/worker.js",
+    "generate": "node src/services/generator.js",
+    "enqueue": "node src/queue/producer.js",
+    "reset": "node src/services/reset.js"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.0.2",
+    "bullmq": "^5.61.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "ioredis": "^5.8.1",
+    "mongodb": "^6.20.0",
+    "uuid": "^13.0.0"
+  }
+}

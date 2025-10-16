@@ -1,0 +1,5 @@
+body { font-family: Arial, sans-serif; margin: 20px; background: #fafafa; color: #222; }
+.container { max-width: 900px; margin: auto; }
+.controls { margin-bottom: 12px; }
+button { margin: 4px; padding: 8px 12px; cursor: pointer; }
+#log { height: 420px; overflow:auto; background:#fff; padding:12px; border:1px solid #ddd; white-space:pre-wrap; }
