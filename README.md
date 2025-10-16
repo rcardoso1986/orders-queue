@@ -37,17 +37,12 @@ This project is a full-stack solution for generating, queuing, and processing a 
 
 ## Getting Started
 
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-2. **Build and start all services:**
+1. **Build and start all services:**
    ```bash
    docker compose up --build
    ```
 
-3. **Access the dashboard:**
+2. **Access the dashboard:**
    - Open [http://localhost:3000/pedidos](http://localhost:3000/pedidos)
 
 ---
