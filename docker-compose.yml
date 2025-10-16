@@ -28,7 +28,7 @@ services:
       - MONGO_URI=mongodb://mongo:27017/test
       - REDIS_HOST=redis
       - REDIS_PORT=6379
-      - CHUNK_SIZE=1000
+      - CHUNK_SIZE=5000
       - BULK_BATCH=1000
       - TOTAL_ORDERS=1000000
     ports:
