@@ -5,6 +5,10 @@ import IORedis from 'ioredis';
 import { connect } from '../db.js';
 
 
+/**
+ * @var		mixed	connection
+ * @global
+ */
 const connection = new IORedis({
   host: process.env.REDIS_HOST || '127.0.0.1',
   port: parseInt(process.env.REDIS_PORT || '6379', 10),
@@ -15,6 +19,10 @@ const connection = new IORedis({
 const vipQueueName = 'vipQueue';
 const normalQueueName = 'normalQueue';
 
+/**
+ * @var		async	function
+ * @global
+ */
 async function waitForRedis(retries = 20, delay = 1000) {
   for (let i = 0; i < retries; i++) {
     try {
@@ -31,6 +39,22 @@ async function waitForRedis(retries = 20, delay = 1000) {
   throw new Error('Redis is unavailable after multiple attempts.');
 }
 
+/**
+ * createWorker.
+ *
+ * @author	Rafael Cardoso
+ * @since	v0.0.1
+ * @version	v1.0.0	Thursday, October 16th, 2025.
+ * @global
+ * @param	mixed	queueName      	
+ * @param	mixed	concurrency    	
+ * @param	mixed	priorityLabel  	
+ * @param	mixed	observationText	
+ * @param	mixed	orders         	
+ * @param	mixed	status         	
+ * @param	mixed	connection     	
+ * @return	mixed
+ */
 function createWorker(queueName, concurrency, priorityLabel, observationText, orders, status, connection) {
   const worker = new Worker(
     queueName,

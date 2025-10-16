@@ -8,6 +8,16 @@ const genBtn = document.getElementById('gen');
 const enqueueBtn = document.getElementById('enqueue');
 const resetBtn = document.getElementById('reset');
 
+/**
+ * setButtons.
+ *
+ * @author	Rafael Cardoso
+ * @since	v0.0.1
+ * @version	v1.0.0	Thursday, October 16th, 2025.
+ * @global
+ * @param	mixed	{ gerar = true, processar = true, resetar = true }	
+ * @return	void
+ */
 function setButtons({ gerar = true, processar = true, resetar = true }) {
   genBtn.disabled = !gerar;
   enqueueBtn.disabled = !processar;
@@ -45,6 +55,10 @@ document.getElementById('reset').onclick = async () => {
 let statusLoopActive = true;
 let queuesLoopActive = true;
 
+/**
+ * @var		async	function
+ * @global
+ */
 async function updateStatusLoop() {
   try {
     const r = await fetch('/orders').then(r=>r.json())
@@ -94,6 +108,10 @@ async function updateStatusLoop() {
   }
 }
 
+/**
+ * @var		async	function
+ * @global
+ */
 async function updateQueuesLoop() {
   try {
     const r = await fetch('/queue-status').then(r=>r.json());

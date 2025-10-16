@@ -18,6 +18,10 @@ const __dirname = path.dirname(__filename);
 
 let sseClients = [];
 
+/**
+ * @var		mixed	redisConnection
+ * @global
+ */
 const redisConnection = new IORedis({
   host: process.env.REDIS_HOST || 'redis',
   port: parseInt(process.env.REDIS_PORT || '6379', 10)
@@ -92,6 +96,10 @@ app.get('/orders', async (req, res) => {
 });
 
 
+/**
+ * @var		async	function
+ * @global
+ */
 async function cleanQueue(){
   const vipQueue = new Queue('vipQueue', { connection: redisConnection });
   const normalQueue = new Queue('normalQueue', { connection: redisConnection });
@@ -122,6 +130,17 @@ app.get('/logs/stream', (req, res) => {
   });
 });
 
+/**
+ * spawnDetached.
+ *
+ * @author	Rafael Cardoso
+ * @since	v0.0.1
+ * @version	v1.0.0	Thursday, October 16th, 2025.
+ * @global
+ * @param	mixed	cmd 	
+ * @param	mixed	args	
+ * @return	void
+ */
 function spawnDetached(cmd, args) {
   const child = spawn(cmd, args, {
     detached: true,

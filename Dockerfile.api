@@ -1,18 +1,12 @@
 FROM node:24-slim
 
-# Update and install security patches
 RUN apt-get update && apt-get upgrade -y && apt-get clean
 
 WORKDIR /opt/app
 
-# Copia package.json e package-lock.json primeiro
 COPY . .
 
-# Instala dependências
 RUN npm install
-
-# Copia o restante do código
-# COPY . .
 
 EXPOSE 3000
 CMD ["node", "src/api.js"]

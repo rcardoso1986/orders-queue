@@ -6,6 +6,15 @@ import 'dotenv/config';
 const TOTAL = parseInt(process.env.TOTAL_ORDERS || '1000000', 10);
 const CHUNK = parseInt(process.env.CHUNK_SIZE || '10000', 10);
 
+/**
+ * randomTier.
+ *
+ * @author	Rafael Cardoso
+ * @since	v0.0.1
+ * @version	v1.0.0	Thursday, October 16th, 2025.
+ * @global
+ * @return	string
+ */
 function randomTier() {
   const r = Math.random();
   if (r < 0.02) return 'DIAMANTE';
@@ -14,6 +23,15 @@ function randomTier() {
   return 'BRONZE';
 }
 
+/**
+ * makeOrder.
+ *
+ * @author	Rafael Cardoso
+ * @since	v0.0.1
+ * @version	v1.0.0	Thursday, October 16th, 2025.
+ * @global
+ * @return	void
+ */
 function makeOrder(i) {
   const tier = randomTier();
   return {
